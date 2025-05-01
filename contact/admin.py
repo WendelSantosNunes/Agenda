@@ -9,7 +9,7 @@ class ContactAdmin(admin.ModelAdmin):
     ordering='id',
     list_filter = 'created_date',
     search_fields = 'id', 'first_name', 'last_name',
-    list_per_page = 1
+    list_per_page = 10
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
