@@ -18,7 +18,7 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = models.Contact
         fields = (
-            'first_name', 'last_name', 'phone' 
+            'first_name', 'last_name', 'phone' , 'email', 'description', 'category'
         )
     
     def clean(self):
@@ -42,13 +42,6 @@ class ContactForm(forms.ModelForm):
         first_name = self.cleaned_data.get('first_name')
         
         if first_name == 'ABC':
-            # Com esse código a execução já para no primeiro erro
-            # raise ValidationError(
-            #     'Não digite Abc nesse campo',
-            #     code='invalid'
-            # )
-            #
-            # Esse código só para depois de mostrar todos os erros.
             self.add_error(
                 'first_name',
                 ValidationError(
